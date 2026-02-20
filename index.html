@@ -11,15 +11,15 @@
           this.isOriginal = true; 
           el.addEventListener('click', function () {
             if (this.isOriginal) {
+              // CAMBIO A LA CAPTURA (Se hace más grande y se centra)
               el.setAttribute('src', '#nueva-imagen');
-              // Ajustes para la captura: escala más grande y posición corregida hacia arriba
-              el.setAttribute('scale', '3 3 3');
-              el.setAttribute('position', '0 0.5 0'); 
+              el.setAttribute('scale', '3 3 3');    // Escala mayor para la captura
+              el.setAttribute('position', '0 0.5 0'); // Ajuste de posición
             } else {
+              // VUELTA A LA MARCA ORIGINAL
               el.setAttribute('src', '#marca');
-              // Ajustes para la marca original
-              el.setAttribute('scale', '2 2 2');
-              el.setAttribute('position', '0 0 0');
+              el.setAttribute('scale', '2 2 2');    // Escala normal
+              el.setAttribute('position', '0 0 0'); // Posición normal
             }
             this.isOriginal = !this.isOriginal;
           }.bind(this));
