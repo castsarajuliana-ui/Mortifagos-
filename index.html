@@ -10,7 +10,7 @@
           var el = this.el;
           this.isOriginal = true; 
           el.addEventListener('click', function () {
-            // SOLO CAMBIA LA IMAGEN (sin tocar tamaño ni posición)
+            // SOLO cambia el src, no toca ni scale ni position
             this.isOriginal = !this.isOriginal;
             el.setAttribute('src', this.isOriginal ? '#marca' : '#nueva-imagen');
           }.bind(this));
@@ -25,7 +25,7 @@
         <img id="nueva-imagen" src="Captura_de_pantalla_2026-02-19_194347-removebg-preview.png">
       </a-assets>
       <a-marker preset="hiro">
-        <!-- Escala fija de 2.5 para ambas -->
+        <!-- Escala fija de 2.5 y posición 0 para SIEMPRE -->
         <a-image id="mi-imagen" src="#marca" rotation="-90 0 0" scale="2.5 2.5 2.5" position="0 0 0" class="clickable" toggle-image></a-image>
       </a-marker>
       <a-entity camera>
