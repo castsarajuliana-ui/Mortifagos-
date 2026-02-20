@@ -10,18 +10,9 @@
           var el = this.el;
           this.isOriginal = true; 
           el.addEventListener('click', function () {
-            if (this.isOriginal) {
-              // CAMBIO A LA CAPTURA (Se hace más grande y se centra)
-              el.setAttribute('src', '#nueva-imagen');
-              el.setAttribute('scale', '3 3 3');    // Escala mayor para la captura
-              el.setAttribute('position', '0 0.5 0'); // Ajuste de posición
-            } else {
-              // VUELTA A LA MARCA ORIGINAL
-              el.setAttribute('src', '#marca');
-              el.setAttribute('scale', '2 2 2');    // Escala normal
-              el.setAttribute('position', '0 0 0'); // Posición normal
-            }
+            // Cambia solo la imagen, manteniendo todo lo demás igual
             this.isOriginal = !this.isOriginal;
+            el.setAttribute('src', this.isOriginal ? '#marca' : '#nueva-imagen');
           }.bind(this));
         }
       });
@@ -34,7 +25,8 @@
         <img id="nueva-imagen" src="Captura_de_pantalla_2026-02-19_194347-removebg-preview.png">
       </a-assets>
       <a-marker preset="hiro">
-        <a-image id="mi-imagen" src="#marca" rotation="-90 0 0" scale="2 2 2" position="0 0 0" class="clickable" toggle-image></a-image>
+        <!-- Ambas imágenes usarán escala 2.5 y posición 0 permanentemente -->
+        <a-image id="mi-imagen" src="#marca" rotation="-90 0 0" scale="2.5 2.5 2.5" position="0 0 0" class="clickable" toggle-image></a-image>
       </a-marker>
       <a-entity camera>
         <a-cursor fuse="false" raycaster="objects: .clickable" color="yellow"></a-cursor>
@@ -42,3 +34,4 @@
     </a-scene>
   </body>
 </html>
+
